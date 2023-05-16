@@ -3,6 +3,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 import numpy as np
+import heapq
 
 # Crear la aplicación FastAPI
 app = FastAPI()
@@ -115,8 +116,6 @@ num_batches = len(df) // batch_size + 1
 indices = pd.Series(df.index, index=df["title"]).drop_duplicates()
 
 # Query 7
-import heapq
-
 @app.get('/recomendacion/{titulo}')
 async def recomendacion(titulo: str):
     id = indices[titulo]
