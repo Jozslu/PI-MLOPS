@@ -6,7 +6,7 @@ import numpy as np
 
 # Crear la aplicación FastAPI
 app = FastAPI()
-df = pd.read_csv("../data_actualizada.csv", index_col=False, sep=",", header=0)
+df = pd.read_csv("data_actualizada.csv", index_col=False, sep=",", header=0)
 
 # Query 1
 @app.get('/peliculas_mes/{mes}')
